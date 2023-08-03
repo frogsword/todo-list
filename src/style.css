@@ -1,0 +1,104 @@
+body {
+	color: white;
+}
+
+#content {
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-template-rows: minmax(70px, 8vh) 92vh;
+	grid-template-columns: minmax(140px, 15vw) 85vw;
+}
+
+.header {
+	grid-area: 1 / 1 / 2 / 3;
+	background-color: darkblue;
+}
+
+.sidebar {
+	grid-area: 2 / 1 / 3 / 2;
+	background-color: darkslategrey;
+	padding: 2%;
+
+	display: grid;
+	grid-template-rows: minmax(170px, 18%) 1fr;
+}
+
+.sidebar-top {
+	border-bottom: 5px solid black;
+
+	display: grid;
+ /* gap: 1rem; */
+}
+
+.projects-list {
+	padding-top: 5%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.modal-launch {
+	width: 100%;
+}
+
+.modal {
+	--bs-modal-color: black;
+}
+
+.modal-body {
+	display: grid;
+	grid-template-rows: auto;
+}
+
+.main-task {
+	grid-area: 2 / 2 / 3 / 3;
+
+	display: flex;
+	flex-direction: column;
+	gap: 5%;
+	background-color: darkgray;
+	padding: 1% 5%;
+}
+
+.main-task-header {
+	display: grid;
+	grid-template-columns: 50% 50%;
+
+	padding-bottom: 3%;
+	border-bottom: 5px solid black;
+}
+
+.main-task-list {
+	display: flex;
+	flex-direction: column;
+	gap: 5%;
+}
+
+.task {
+	display: flex;
+	align-items: center;
+}
+
+.accordion-item {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+.accordion-body p {
+	word-wrap: break-word;
+}
+
+.task-trash:hover,
+.task-edit:hover {
+	cursor: pointer;
+	transition: 0.5s;
+	transform: scale(1.1);
+}
+
+.task-trash:active,
+.task-edit:active {
+	transition: 0.5s;
+	transform: scale(0.9);
+}
