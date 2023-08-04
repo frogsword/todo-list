@@ -1,13 +1,14 @@
 body {
 	color: white;
+    font-family: 'Arvo', serif;
 }
 
 #content {
 	height: 100vh;
 	width: 100vw;
 	display: grid;
-	grid-template-rows: minmax(70px, 8vh) 92vh;
-	grid-template-columns: minmax(140px, 15vw) 85vw;
+	grid-template-rows: minmax(70px, 8vh) auto;
+	grid-template-columns: minmax(140px, 15vw) auto;
 }
 
 .header {
@@ -81,24 +82,59 @@ body {
 	align-items: center;
 }
 
+
+//task accordions
+.accordion {
+	margin-top: 1% !important;
+}
+
+.accordion-button {
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.accordion-button:after {
+    content: none;
+}
+
 .accordion-item {
 	width: 100% !important;
 	max-width: 100% !important;
+}
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+
 }
 
 .accordion-body p {
 	word-wrap: break-word;
 }
 
+.task-buttons {
+    display: flex;
+    gap: 15px;
+}
+
 .task-trash:hover,
 .task-edit:hover {
 	cursor: pointer;
-	transition: 0.5s;
-	transform: scale(1.1);
+	transition: 0.4s;
+	transform: scale(1.05);
 }
 
 .task-trash:active,
 .task-edit:active {
-	transition: 0.5s;
-	transform: scale(0.9);
+	transition: 0.4s;
+	transform: scale(0.95);
+}
+
+.task-edit:hover {
+    fill: #22c55e;
+}
+
+.task-trash:hover {
+    fill: #dc2626;
 }

@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 import Header from './components/Header.js';
 import Sidebar from './components/Sidebar.js';
 import { TaskList } from './components/TaskList.js';

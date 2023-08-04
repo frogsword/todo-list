@@ -19,23 +19,25 @@ const createTask = () => {
 	let runningId = 0;
 
 	confirmBtn.addEventListener('click', function () {
-		let newTask = new task(inputs[0].value, inputs[1].value, inputs[2].value, selects[0].value, selects[1].value, getNextId());
-		myTasks.push(newTask);
-		updateTaskDisplay(myTasks);
-
-		inputs[0].value = '';
-		inputs[1].value = '';
-		inputs[2].value = '';
-		selects[0].value = 'low';
-		selects[1].value = 'General';
-
-		saveTasksLocally(); //after task creation
+		if (inputs[0].value.length > 0) {
+			let newTask = new task(inputs[0].value, inputs[1].value, inputs[2].value, selects[0].value, selects[1].value, getNextId());
+			myTasks.push(newTask);
+			updateTaskDisplay(myTasks);
+	
+			inputs[0].value = '';
+			inputs[1].value = '';
+			inputs[2].value = '';
+			selects[0].value = 'low';
+			selects[1].value = 'General';
+	
+			saveTasksLocally(); //after task creation
+		}
 	});
 
 	//keep runningId updated after page refresh
 	function getNextId() {
+		runningId = 0;
 		myTasks.forEach((task) => {
-			runningId = 0;
 			if (task.id > runningId) {
 				runningId = task.id;
 			}

@@ -34,7 +34,6 @@ const filterByTime = () => {
 			let date = new Date();
 			let day = date.getDate();
 			let filteredArr = [];
-			console.log(day);
 
 			myTasks.forEach((task) => {
 				if (isThisWeek(parseISO(task.date), { weekStartsOn: day })) {

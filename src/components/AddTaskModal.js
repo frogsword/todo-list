@@ -13,7 +13,7 @@ const AddTaskModal = (() => {
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Name</span>
-                <input type="text" class="form-control task-input" aria-label="Name" aria-describedby="basic-addon1" maxlength="30">
+                <input type="text" class="form-control task-input" aria-label="Name" aria-describedby="basic-addon1" minlength="1" maxlength="30" required>
             </div>
                 
             <div class="input-group">

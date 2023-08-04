@@ -1,6 +1,7 @@
 import { createTaskAccordion } from '../components/TaskList';
 import { handleTaskEvents, handleListEvents } from './element-events';
 import { filterByListEvent, filterByTime } from './task-filters';
+import { format } from 'date-fns';
 
 //update display of tasks
 const updateTaskDisplay = (taskArray) => {
@@ -10,6 +11,9 @@ const updateTaskDisplay = (taskArray) => {
 
 	taskList.innerHTML = '';
 	headerText.innerHTML = 'All';
+
+	//sort by name ascending
+	taskArray = taskArray.sort((t1, t2) => (t1.name.toLowerCase() < t2.name.toLowerCase()) ? -1 : (t1.name.toLowerCase() > t2.name.toLowerCase()) ? 1 : 0);
 
 	//decide color based on priority
 	taskArray.forEach((task) => {
@@ -25,7 +29,9 @@ const updateTaskDisplay = (taskArray) => {
 				break;
 		}
 
-		taskList.appendChild(createTaskAccordion(task.name, task.desc, task.date, task.prio, task.project, task.id, prioColor));
+		let date = format(new Date(task.date.slice(0,4), parseInt(task.date.slice(5, 7))-1, task.date.slice(8, 10)), "MMM dd',' yyyy");
+
+		taskList.appendChild(createTaskAccordion(task.name, task.desc, task.date, task.prio, task.project, task.id, prioColor, date));
 	});
 
 	handleTaskEvents();
