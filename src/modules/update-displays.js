@@ -29,7 +29,12 @@ const updateTaskDisplay = (taskArray) => {
 				break;
 		}
 
-		let date = format(new Date(task.date.slice(0,4), parseInt(task.date.slice(5, 7))-1, task.date.slice(8, 10)), "MMM dd',' yyyy");
+		let date = '';
+		try {
+			date = format(new Date(task.date.slice(0,4), parseInt(task.date.slice(5, 7))-1, task.date.slice(8, 10)), "MMM dd',' yyyy");
+		} catch(error) {
+			
+		}
 
 		taskList.appendChild(createTaskAccordion(task.name, task.desc, task.date, task.prio, task.project, task.id, prioColor, date));
 	});
