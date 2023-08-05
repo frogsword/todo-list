@@ -1,3 +1,3 @@
 # todo-list
 
-Deployed at: https://frogsword.github.io/todo-list/
+Deployed at: https://todo-list-frogsword-9075772ec265.herokuapp.com/
