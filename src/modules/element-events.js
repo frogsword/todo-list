@@ -74,7 +74,6 @@ const handleListEvents = () => {
 			}
 		});
 	}
-	// filterByListEvent();
 };
 
 export { handleTaskEvents, handleListEvents };

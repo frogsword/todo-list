@@ -1,39 +1,33 @@
-const TaskList = (() => {
-    const mainTask = document.createElement('div');
-    mainTask.classList.add('main-task');
+const TaskList = () => {
+	const mainTask = document.createElement('div');
+	mainTask.classList.add('main-task');
 
-    const mainTaskHeader = document.createElement('div');
-    mainTaskHeader.classList.add('main-task-header');
-    mainTaskHeader.innerHTML = 
-    `
+	const mainTaskHeader = document.createElement('div');
+	mainTaskHeader.classList.add('main-task-header');
+	mainTaskHeader.innerHTML = `
     <h1 class="header-text">All</h1>
     <button type="button" class="btn btn-primary modal-launch" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add a Task
     </button>
     `;
-    mainTask.appendChild(mainTaskHeader);
+	mainTask.appendChild(mainTaskHeader);
 
-    const mainTaskList = document.createElement('div');
-    mainTaskList.classList.add('main-task-list');
+	const mainTaskList = document.createElement('div');
+	mainTaskList.classList.add('main-task-list');
 
-    mainTask.appendChild(mainTaskList);
+	mainTask.appendChild(mainTaskList);
 
-    return mainTask;
-});
+	return mainTask;
+};
 
-function createTaskAccordion(aName, aDesc, aDate, aPrio, aProject, aId, aPrioColor, dateString) {
-    let taskList = document.querySelector('.main-task-list');
-    let taskAccordion = document.createElement('div');
-    taskAccordion.classList.add("accordion", "task");
-    taskAccordion.setAttribute('id', `${aId}`);
-    taskAccordion.style = `border-left: 6px solid ${aPrioColor}; border-radius: 10px;`;
+function createTaskAccordion(aName, aDesc, aDate, aPrio, aProject, aId, aPrioColor, aPrioBg, dateString) {
+	// let taskList = document.querySelector('.main-task-list');
+	let taskAccordion = document.createElement('div');
+	taskAccordion.classList.add('accordion', 'task');
+	taskAccordion.setAttribute('id', `${aId}`);
+	taskAccordion.style = `border-left: 6px solid ${aPrioColor}; border-radius: 10px; --bs-accordion-active-bg: ${aPrioBg};`;
 
-    if (dateString == 'lid Date') {
-        dateString = '';
-    }
-
-    taskAccordion.innerHTML =
-    `
+	taskAccordion.innerHTML = `
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-${aId}" aria-expanded="true" aria-controls="collapseOne">
@@ -64,7 +58,7 @@ function createTaskAccordion(aName, aDesc, aDate, aPrio, aProject, aId, aPrioCol
         </div>
     `;
 
-    return taskAccordion;
-};
+	return taskAccordion;
+}
 
-export {TaskList, createTaskAccordion};
+export { TaskList, createTaskAccordion };

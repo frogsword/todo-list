@@ -1,6 +1,6 @@
 import { isThisWeek, parseISO } from 'date-fns';
 import { myTasks } from '../index';
-import { updateTaskDisplay } from './update-displays';
+import { updateTaskDisplay, showSelectedFilter } from './update-displays';
 
 //filter tasks by time
 const filterByTime = () => {
@@ -22,6 +22,7 @@ const filterByTime = () => {
 			});
 			updateTaskDisplay(filteredArr);
 			headerText.innerHTML = 'Today';
+			showSelectedFilter(headerText.textContent);
 		};
 
 		filterTodayBtn.removeEventListener('click', filterDay);
@@ -43,6 +44,7 @@ const filterByTime = () => {
 			});
 			updateTaskDisplay(filteredArr);
 			headerText.innerHTML = 'Week';
+			showSelectedFilter(headerText.textContent);
 		};
 
 		filterWeekBtn.removeEventListener('click', filterWeek);
@@ -65,6 +67,7 @@ const filterByListEvent = () => {
 		const unfilter = () => {
 			updateTaskDisplay(myTasks);
 			headerText.innerHTML = 'All';
+			showSelectedFilter(headerText.textContent);
 		};
 
 		filterAll.removeEventListener('click', unfilter);
@@ -82,6 +85,7 @@ const filterByListEvent = () => {
 			});
 			updateTaskDisplay(filteredArr);
 			headerText.innerHTML = `${btnId}`;
+			showSelectedFilter(headerText.textContent);
 		};
 
 		listButtons.forEach((btn) => btn.removeEventListener('click', filter));

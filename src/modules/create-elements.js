@@ -34,6 +34,12 @@ const createTask = () => {
 		}
 	});
 
+	document.querySelector('.modal-content').addEventListener('keypress', function(event) {
+		if (event.key === "Enter") {
+			confirmBtn.click();
+		}
+	});
+
 	//keep runningId updated after page refresh
 	function getNextId() {
 		runningId = 0;
@@ -72,6 +78,12 @@ const createList = () => {
 
 				saveProjectsLocally(); //after list creation
 			}
+		}
+	});
+
+	addListInput.addEventListener('keypress', function(event) {
+		if (event.key === "Enter") {
+			addListButton.click();
 		}
 	});
 };

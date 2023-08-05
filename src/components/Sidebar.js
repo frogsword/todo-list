@@ -20,7 +20,7 @@ const createSidebarNavs = (text) => {
 	const nav = document.createElement('div');
 	nav.classList.add('sidebarNav', `${text}-nav`);
 	nav.innerHTML = `
-    <li><h3>${text}</h3></li>
+    <li><div class="filter-elem" id=${text}>${text}</div></li>
     `;
 
 	return nav;
@@ -33,13 +33,13 @@ const projectsList = () => {
 	projects.innerHTML = `
     <div class="list">
         <ul class="projects-lists">
-            <li class="project-list-item">General</li>
+            <li class="project-list-item filter-elem">General</li>
         </ul>
     </div>
 
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 add-list">
         <input type="text" class="form-control projects-input" placeholder="New List" aria-label="Name" maxlength="12" required>
-        <button class="btn btn-outline-secondary add-list" type="button" id="button-addon2">+</button>
+        <button class="btn btn-outline-secondary add-list-btn" type="button" id="button-addon2">+</button>
     </div>
     `;
 	projects.appendChild(ProjModal());
