@@ -4,7 +4,7 @@ const Sidebar = () => {
 	const sidebar = document.createElement('div');
 	sidebar.classList.add('sidebar');
 
-	const topSect = document.createElement('div');
+	const topSect = document.createElement('ul');
 	topSect.classList.add('sidebar-top');
 	sidebar.appendChild(topSect);
 
@@ -20,7 +20,7 @@ const createSidebarNavs = (text) => {
 	const nav = document.createElement('div');
 	nav.classList.add('sidebarNav', `${text}-nav`);
 	nav.innerHTML = `
-    <h3>${text}</h3>
+    <li><h3>${text}</h3></li>
     `;
 
 	return nav;
@@ -32,7 +32,6 @@ const projectsList = () => {
 
 	projects.innerHTML = `
     <div class="list">
-        <h1>Lists</h1>
         <ul class="projects-lists">
             <li class="project-list-item">General</li>
         </ul>
