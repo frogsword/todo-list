@@ -59,7 +59,7 @@ const createList = () => {
 	let addListButton = document.querySelector('.add-list');
 	let originalName;
 
-	addListButton.addEventListener('click', function () {
+	function addList() {
 		originalName = true;
 		//add list to array and call function to update list and project choices
 		if (addListInput.value !== '') {
@@ -79,6 +79,10 @@ const createList = () => {
 				saveProjectsLocally(); //after list creation
 			}
 		}
+	};
+
+	addListButton.addEventListener('click', function() {
+		addList();
 	});
 
 	addListInput.addEventListener('keypress', function(event) {

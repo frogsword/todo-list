@@ -3,7 +3,7 @@ import Header from './components/Header.js';
 import Sidebar from './components/Sidebar.js';
 import { TaskList } from './components/TaskList.js';
 import { createList, createTask } from './modules/create-elements.js';
-import { loadLocalStorage } from './modules/local-storage.js';
+import { loadLocalStorage, saveProjectsLocally } from './modules/local-storage.js';
 
 let myProjects = ['General'];
 let myTasks = [];
